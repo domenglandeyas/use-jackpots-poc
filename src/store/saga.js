@@ -24,14 +24,15 @@ function jackPotJobs({ jackpotId }) {
   const activeJackpotData = jackpotIdJobsMap[jackpotId];
   console.log(jackpotIdJobsMap);
   if (!activeJackpotData.job)
-    activeJackpotData.job = createJackpotUpdaterChanel(activeJackpotData, jackpotId);
+    activeJackpotData.job = createJackpotUpdaterChanel(jackpotId);
 
   return activeJackpotData.job;
 }
 
-const createJackpotUpdaterChanel = (activeJackpotData, jackpotId) =>
+const createJackpotUpdaterChanel = (jackpotId) =>
   eventChannel((emitter) => {
     const intervalId = setInterval(() => {
+      const activeJackpotData = jackpotIdJobsMap[jackpotId];
       const subscriptions = Object.keys(
         activeJackpotData.componentsSubscription
       );

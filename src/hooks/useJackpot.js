@@ -23,7 +23,7 @@ function useJackpot({ jackpotId }) {
       /**
        * unwatch jackpot
        */
-      dispatch(unwatchJackpots(uid));
+      dispatch(unwatchJackpots(jackpotId, uid));
     };
   }, [jackpotId]);
 

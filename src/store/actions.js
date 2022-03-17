@@ -14,12 +14,13 @@ export const watchJackpots = (jackpotId, componentId) => {
     }
 }
 
-export const unwatchJackpots = (componentId) => {
-    return {
-        type: JACKPOTS_STOP_WATCHING,
-        componentId
-    }
-}
+export const unwatchJackpots = (jackpotId, componentId) => {
+  return {
+    type: JACKPOTS_STOP_WATCHING,
+    jackpotId,
+    componentId,
+  };
+};
 
 
 export const startJackpotTask = () => ({ type: JACKPOTS_START });
