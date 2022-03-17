@@ -21,13 +21,15 @@ export const unwatchJackpots = (componentId) => {
     }
 }
 
-export const setJackpots = (jackpots) => {
-    return {
-        type: JACKPOTS_UPDATE,
-        jackpots,
-    }
-}
 
 export const startJackpotTask = () => ({ type: JACKPOTS_START });
 
 export const cancelJackpotTask = () => ({ type: JACKPOTS_CANCEL });
+
+export const setJackpots = ({jackpots, jackpotId}) => {
+  return {
+    type: JACKPOTS_UPDATE,
+    jackpotId,
+    jackpots,
+  };
+};
